@@ -1,44 +1,44 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<!-- The HTML 4.01 Transitional DOCTYPE declaration-->
-<!-- above set at the top of the file will set     -->
-<!-- the browser's rendering engine into           -->
-<!-- "Quirks Mode". Replacing this declaration     -->
-<!-- with a "Standards Mode" doctype is supported, -->
-<!-- but may lead to some differences in layout.   -->
-
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>メイン</title>
-        <style>
-            table {border-collapse: collapse;}
-            td,th {border: solid 1px; padding: 0.5em;}
-        </style>
-    </head>
-    <body>
-        <h1><font color="red">メイン</font></h1>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>在庫管理システム</title>
+    <script type="text/javascript" src="lib.js"></script>
+        <script type="text/javascript">
+        <!--
+        function callback(request){
+            var json = eval(request.responseText);
+            var res = '';
+            if (json.length == 1){
+                res += '<tr><td>' + json[0].itemId +'</td></tr>';
+                res += '<tr><td>' + json[0].itemName +'</td></tr>';
+                res += '<tr><td>' + json[0].price+'</td></tr>';
+                res += '<tr><td>' + json[0].num +'</td></tr>';
+         
+                } else {
+                    for (var i = 0;i < json.length;i++){
+                        res += '<tr><td><a href="javascript:return false;" onclick="getData(' + json[i].itemId +');">' + json[i].itemId + '</a></td>';
+                        res += '<td><a href="' + json[i].itemName + '">' + json[i].price + '</a></td>' +
+                        '<td><a href="edit.html?itemId=' + json[i].itemId + '">Edit</td>' +
+                        '<td><a href="del.html?itemId=' + json[i].itemId + '">Delete</td></tr>';
+                }
+            }
+            var obj = document.getElementById("datatable");
+            obj.innerHTML = res;
+        }
+        //-->
+        </script>
+  </head>
+  <body onload="getData(null);">    
+      <h1><font color="red">在庫管理システム</font></h1>
         ようこそ!!
-        
-
         <h2>在庫一覧</h2>
-        <table>
-            <tr>
-                <th>商品ID</th>
-                <th>名称</th>                
-                <th>個数</th>    
-            </tr>
-            
-            <c:forEach var="item" items="${Items}">
-
-                <tr>
-                    <td> <c:out value="${item.itemId}" /> </td>
-                    <td> <c:out value="${item.itemName}" /> </td>
-                    <td> <c:out value="${item.num}" /> </td>
-                </tr>
-            </c:forEach>
-                
-        </table>
-
-        <p><a href="/ad0818/OrderList">発注</a></p> 
-    </body>
+    <table id="datatable" border="1">
+      <tr>
+        <td>wait...</td>
+      </tr>
+    </table>
+    <br>
+    <div><a href="add.html">発注</a></div>
+  </body>
 </html>

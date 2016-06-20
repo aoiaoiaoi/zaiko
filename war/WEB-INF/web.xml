@@ -4,43 +4,43 @@ xmlns="http://java.sun.com/xml/ns/javaee"
 xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
 http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
-	<servlet>
-		<servlet-name>Ad0818</servlet-name>
-		<servlet-class>servlet.Ad0818Servlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>Ad0818</servlet-name>
-		<url-pattern>/ad0818</url-pattern>
-	</servlet-mapping>
-	<welcome-file-list>
-		<welcome-file>index.html</welcome-file>
-	</welcome-file-list>
+	
 	
 	<servlet>
-		<servlet-name>Main</servlet-name>
-		<servlet-class>servlet.Main</servlet-class>
+		<servlet-name>Order2</servlet-name>
+		<servlet-class>servlet.Order2</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>Main</servlet-name>
-		<url-pattern>/main</url-pattern>
+		<servlet-name>Order2</servlet-name>
+		<url-pattern>/order2</url-pattern>
 	</servlet-mapping>
 	
 	<servlet>
-		<servlet-name>Order</servlet-name>
-		<servlet-class>servlet.Order</servlet-class>
+    	<servlet-name>add_items</servlet-name>
+    	<servlet-class>servlet.AddItemsServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>Order</servlet-name>
-		<url-pattern>/order</url-pattern>
+    	<servlet-name>add_items</servlet-name>
+    	<url-pattern>/add</url-pattern>
 	</servlet-mapping>
 	
 	<servlet>
-		<servlet-name>OrderList</servlet-name>
-		<servlet-class>servlet.OrderList</servlet-class>
+    	<servlet-name>edit_items</servlet-name>
+    	<servlet-class>servlet.EditItemsServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>OrderList</servlet-name>
-		<url-pattern>/orderList</url-pattern>
+    	<servlet-name>edit_items</servlet-name>
+    	<url-pattern>/edit</url-pattern>
+	</servlet-mapping>
+		
+		
+	<servlet>
+    	<servlet-name>del_items</servlet-name>
+    	<servlet-class>servlet.DelItemsServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+    	<servlet-name>del_items</servlet-name>
+    	<url-pattern>/del</url-pattern>
 	</servlet-mapping>
 	
 </web-app>

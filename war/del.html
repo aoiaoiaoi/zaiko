@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>Itemsの削除</title>
+    <script type="text/javascript" src="lib.js"></script>
+        <script type="text/javascript">
+        <!--
+        function initial(){
+            var datas = getQuery();
+            getData(datas.itemId);
+        }
+         
+        function callback(request){
+            var arr = eval(request.responseText);
+            var data = arr[0];
+            var msg = '<table border="1"><tr><td>' + data.itemName + '</td></tr>';
+            msg += '<tr><td>' + data.price + '</td></tr>';
+            msg += '<tr><td>' + data.num + '</td></tr></table>';
+            document.getElementById("data").innerHTML = msg;
+            document.getElementById("itemId").value = data.itemId;
+        }
+        //-->
+        </script>
+    </head>
+    <body onload="initial();">
+        <h1>データの削除</h1>
+        <div>以下のデータを削除しますか？</div>
+        <div id="data"></div>
+        <form method="post" action="del">
+            <input type="hidden" id="itemId" name="itemId">
+            <input type="submit" value="削除">
+        </form>
+        </body>
+</html>
